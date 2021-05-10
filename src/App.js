@@ -1,5 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './assets/images/logo.svg';
+import './assets/css/App.css';
+
+// Importar componentes
+import MiComponente from './components/MiComponente';
 
 function HelloWorld(name, age){
   let presentation = (
@@ -21,15 +24,14 @@ function App() {
         <p>
           Hi there! Welcome to mi first project in react
         </p>
-          {HelloWorld(name, 22)}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        
+        {HelloWorld(name, 22)}        
+
+      
+        <section className="components">
+          <MiComponente/>          
+        </section>
+        
       </header>
     </div>
   );
