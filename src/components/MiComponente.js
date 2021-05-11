@@ -1,9 +1,30 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-class MiComponente extends React.Component{
+class MiComponente extends Component{
     render(){
+        let recipe = {
+            name: 'Pizza',
+            ingredients: ['Tomato', 'Cheese', 'Jam', 'salami'],
+            calories: 400
+        };
+
         return(
-            <h1>Hi, I'm the component called: MiComponente</h1>
+            <div className="my-component">
+                <hr/>
+                <h1>Recipe: {recipe.name}</h1>
+                <h1>Calories: {recipe.calories}</h1>
+                <ol>
+                    {
+                        recipe.ingredients.map((ing, i) => {
+                            return(
+                                <li key={i}>
+                                    {ing}
+                                </li>
+                            )
+                        })
+                    }
+                </ol>
+            </div>
         )
     }
 }
