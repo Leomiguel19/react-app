@@ -4,8 +4,9 @@ import './assets/css/App.css';
 // Importar componentes
 import MiComponente from './components/MiComponente';
 import Peliculas from './components/Peliculas';
+import Header from './components/Header';
 
-function HelloWorld(name, age){
+function HelloWorld(name, age) {
   let presentation = (
     <div>
       <h2>Hi, i'm {name}</h2>
@@ -20,20 +21,21 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Hi there! Welcome to mi first project in react
         </p>
-        
-        {HelloWorld(name, 22)}        
 
-      
+        {HelloWorld(name, 22)}
+
+
         <section className="components">
-          <MiComponente/>   
-          <Peliculas/>       
+          <MiComponente />
+          <Peliculas />
         </section>
-        
+
       </header>
     </div>
   );
