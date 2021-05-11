@@ -24,6 +24,7 @@ class MiComponente extends Component{
                         })
                     }
                 </ol>
+                <hr/>
             </div>
         )
     }
