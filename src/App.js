@@ -6,6 +6,7 @@ import MiComponente from './components/MiComponente';
 import Peliculas from './components/Peliculas';
 import Header from './components/Header';
 import Slider from './components/Slider';
+import Sidebar from './components/Sidebar';
 
 function HelloWorld(name, age) {
   let presentation = (
@@ -23,23 +24,27 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Slider/>
+      <Slider />
+      
+      <div className="center">
+        <section id="content">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Hi there! Welcome to mi first project in react
+          </p>
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hi there! Welcome to mi first project in react
-        </p>
-
-        {HelloWorld(name, 22)}
+          {HelloWorld(name, 22)}
 
 
-        <section className="components">
-          <MiComponente />
-          <Peliculas />
+          <section className="components">
+            <MiComponente />
+            <Peliculas />
+          </section>
         </section>
 
-      </header>
+        <Sidebar/>
+
+      </div>
     </div>
   );
 }
