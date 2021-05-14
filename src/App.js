@@ -7,6 +7,7 @@ import Peliculas from './components/Peliculas';
 import Header from './components/Header';
 import Slider from './components/Slider';
 import Sidebar from './components/Sidebar';
+import Footer from './components/Footer';
 
 function HelloWorld(name, age) {
   let presentation = (
@@ -30,7 +31,7 @@ function App() {
         <section id="content">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Hi there! Welcome to mi first project in react
+            Hi there! Welcome to mi first project in reactttt
           </p>
 
           {HelloWorld(name, 22)}
@@ -43,8 +44,10 @@ function App() {
         </section>
 
         <Sidebar/>
-
+      
+      <div className="clearfix"></div>
       </div>
+      <Footer/>
     </div>
   );
 }
