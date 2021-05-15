@@ -25,6 +25,14 @@ class MiComponente extends Component{
                     }
                 </ol>
                 <hr/>
+
+                {this.props.saludo &&
+                <React.Fragment>
+                    <h1>DESDE UNA PROP: </h1>
+                    <h3>{this.props.saludo}</h3>
+                </React.Fragment>
+                }
+                
             </div>
         )
     }
