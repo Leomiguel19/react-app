@@ -13,7 +13,7 @@ class Home extends Component {
         />
         <div className="center">
           <div id="content">
-            <h1 class="subheader">Últimos Artículos</h1>
+            <h1 className="subheader">Últimos Artículos</h1>
           </div>
           
           <Sidebar />
