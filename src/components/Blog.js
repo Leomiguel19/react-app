@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 import Slider from './Slider';
 import Sidebar from './Sidebar';
 
-class Home extends Component {
+class Blog extends Component {
   render() {
     return (
-      <div id="home">
+      <div id="blog">
         <Slider
-          title="Bienvenido a mi primera app con React"
-          btn="Ir al blog"
-          size="slider-big"
+          title="Blog"
+          size="slider-small"
         />
         <div className="center">
           <div id="content">
-            <h1 class="subheader">Últimos Artículos</h1>
+            {/*Listado de artículos que vendrán de la API rest de node*/}
           </div>
           
-          <Sidebar />
+          <Sidebar 
+            blog="true"
+          />
 
         </div>
       </div>
@@ -24,4 +25,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Blog;
