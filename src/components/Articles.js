@@ -25,11 +25,28 @@ class Articles extends Component{
   }
 
   render(){
-    return(
-      <div id="articles">
-        <h1>Hola mundo</h1>
-      </div>
-    );
+    if(this.state.articles.length >= 1){
+      return(
+        <div id="articles">
+          <h1>LISTADO DE ARTÍCULOS</h1>
+        </div>
+      );  
+    }else if(this.state.articles.length === 0 && this.state.articles.status === 'success'){
+      return(
+        <div id="articles">
+          <h2 className="subheader">No hay artículos para mostrar</h2>
+          <p>Todavia no hay contenido en esta sección</p>
+        </div>
+      );  
+    }else{
+      return(
+        <div id="articles">
+          <h2 className="subheader">Cargando...</h2>
+          <p>Espere mientras carga el contenido...</p>
+        </div>
+      );
+  
+    }
   }
 }
 
