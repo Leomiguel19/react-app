@@ -19,7 +19,6 @@ class Pelicula extends Component {
         <span className="date">
           Hace 5 minutos
         </span>
-        <a href="#">Leer más</a>
 
         <a href="#">Leer más</a>
         <button onClick={this.marcar}>
