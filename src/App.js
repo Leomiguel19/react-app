@@ -1,4 +1,3 @@
-import logo from './assets/images/logo.svg';
 import './assets/css/App.css';
 
 // Importar componentes
@@ -8,31 +7,25 @@ import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import SeccionPruebas from './components/SeccionPruebas';
 
-function HelloWorld(name, age) {
-  let presentation = (
-    <div>
-      <h2>Hi, i'm {name}</h2>
-      <h2>i'm {age} years old</h2>
-    </div>
-  );
-  return presentation;
-}
-
 function App() {
+  let buttonString = "Ver más";
 
   return (
     <div className="App">
       <Header />
-      <Slider />
-      
+      <Slider 
+        title="Bienvenido a mi primera app con React" 
+        btn={buttonString} 
+      />
+
       <div className="center">
-        
-        <SeccionPruebas/>
-        <Sidebar/>
-      
-      <div className="clearfix"></div>
+
+        <SeccionPruebas />
+        <Sidebar />
+
+        <div className="clearfix"></div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
