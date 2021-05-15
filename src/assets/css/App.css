@@ -271,8 +271,8 @@ textarea{
 }
 
 .article-item .image-wrap {
-  width: 130px;
-  height: 130px;
+  width: 200px;
+  height: 300px;
   overflow:hidden;
   float:left;
   margin-right: 15px;
