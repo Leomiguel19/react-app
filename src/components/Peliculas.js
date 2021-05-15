@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Pelicula from './Pelicula';
 class Peliculas extends Component {
     state = {
-       
+
     }
 
     favorita = (peli) => {
@@ -11,11 +11,11 @@ class Peliculas extends Component {
         })
     }
 
-    componentDidMount(){
+    componentDidMount() {
         //alert("Ya se monto el componente")
     }
-    
-    componentWillMount(){
+
+    componentWillMount() {
         //alert("Se va a montar el componente")
         this.setState({
             peliculas: [
@@ -56,17 +56,35 @@ class Peliculas extends Component {
             padding: '10px'
         };
 
+        let favorita;
+        if (this.state.favorita.titulo) {
+            favorita = (
+                <p className="Favorita" style={pStyle}>
+                    <strong>La película favorita es: </strong>
+                    <span>{this.state.favorita.titulo}</span>
+                </p>
+            );
+        }else{
+            favorita = (
+                <p>NO HAY PELICULA FAVORITA</p>
+            )
+        }
+
         return (
             <div id="content" className="peliculas">
                 <h2 className="subheader">Peliculas</h2>
                 <p>Selección de las peliculas favoritas de {this.state.name}</p>
 
-                {this.state.favorita.titulo &&
+                {/*this.state.favorita.titulo ? (
                     <p className="Favorita" style={pStyle}>
                         <strong>La película favorita es: </strong>
                         <span>{this.state.favorita.titulo}</span>
                     </p>
-                }
+                ) : (
+                    <p>NO HAY PELÍCULA FAVORITA</p>
+                )
+                */}
+                {favorita}
 
                 <div id="articles" className="peliculas">
                     {
