@@ -20,19 +20,19 @@ class Header extends Component {
                     <nav id="menu">
                         <ul>
                             <li>
-                                <NavLink to="/">Inicio</NavLink>
+                                <NavLink to="/home" activeClassName="active">Inicio</NavLink>
                             </li>
                             <li>
-                                <NavLink to="ruta-prueba">Blog</NavLink>
+                                <NavLink to="ruta-prueba" activeClassName="active">Blog</NavLink>
                             </li>
                             <li>
-                                <NavLink to="segunda-ruta">Formulario</NavLink>
+                                <NavLink to="segunda-ruta" activeClassName="active">Formulario</NavLink>
                             </li>
                             <li>
-                                <NavLink to="pagina-1">Pagina 1</NavLink>
+                                <NavLink to="pagina-1" activeClassName="active">Pagina 1</NavLink>
                             </li>
                             <li>
-                                <NavLink to="pruebas/Leonardo">Pagina 2</NavLink>
+                                <NavLink to="pruebas/Leonardo" activeClassName="active">Pagina 2</NavLink>
                             </li>
                         </ul>
                     </nav>
