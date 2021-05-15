@@ -28,19 +28,44 @@ class Peliculas extends Component {
                 image: 'https://static.wikia.nocookie.net/marvelcinematicuniverse/images/b/bf/Captain_America_Civil_War_-_Poster_definitivo.png/revision/latest?cb=20191029195149&path-prefix=es'
             },
         ],
-        name: 'Leonardo Guilarte'
+        name: 'Leonardo Guilarte',
+        favorita: {}
     }
+
+    favorita = (peli) => {
+        this.setState({
+            favorita: peli
+        })
+    }
+
     render() {
+        let pStyle = {
+            background: 'green',
+            color: 'white',
+            padding: '10px'
+        };
+
         return (
             <div id="content" className="peliculas">
                 <h2 className="subheader">Peliculas</h2>
                 <p>Selección de las peliculas favoritas de {this.state.name}</p>
 
+                {this.state.favorita.titulo &&
+                    <p className="Favorita" style={pStyle}>
+                        <strong>La película favorita es: </strong>
+                        <span>{this.state.favorita.titulo}</span>
+                    </p>
+                }
+
                 <div id="articles" className="peliculas">
                     {
                         this.state.peliculas.map((pelicula, i) => {
                             return (
-                                <Pelicula key={i} pelicula={pelicula}/>
+                                <Pelicula
+                                    key={i}
+                                    pelicula={pelicula}
+                                    marcarFavorita={this.favorita}
+                                />
                             )
                         })
                     }
