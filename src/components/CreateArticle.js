@@ -13,7 +13,8 @@ class CreateArticle extends Component{
 
   state = {
     article: {},
-    status: null
+    status: null,
+    selectedFile: null
   }
 
   changeState = () => {
@@ -37,14 +38,57 @@ class CreateArticle extends Component{
         if(res.data.article){
           this.setState({
             article: res.data.article,
-            status: 'success'
-          })
+            status: 'waiting'
+          });
+
+          // Subir la imagen
+          if(this.state.selectedFile !== null){
+            // Sacar el id del articulo guardado
+            let articleId = this.state.article._id;
+
+            // Crear form data y añadir fichero
+            const formData = new FormData();
+
+            formData.append(
+              'file0',
+              this.state.selectedFile,
+              this.state.selectedFile.name
+            );
+
+            // Petición ajax
+            axios.post(this.url + 'upload-image/'+articleId, formData)
+              .then(res => {
+                if(res.data.article){
+                  this.setState({
+                    article: res.data.article,
+                    status: 'success'
+                  });
+                }else{
+                    this.setState({
+                      article: res.data.article,
+                      status: 'failed'
+                    });
+                }
+              })
+
+          }else{
+            this.setState({
+              status: 'success'
+            });
+          }
+
         }else{
           this.setState({
             status: 'failed'
           });
         }
       })
+  }
+
+  fileChange = (event) => {
+    this.setState({
+      selectedFile: event.target.files[0]
+    });
   }
 
   render(){
@@ -72,7 +116,7 @@ class CreateArticle extends Component{
 
             <div className="form-group">
               <label htmlFor="file0">Imagen</label>
-              <input type="file" name="file0"/>
+              <input type="file" name="file0" onChange={this.fileChange}/>
             </div>
             
             <input type="submit" value="Guardar" className="btn btn-success" />
