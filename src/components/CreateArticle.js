@@ -7,7 +7,7 @@ import Global from '../Global';
 // Validaciones formularios y alertas
 
 class CreateArticle extends Component{
-
+  url = Global.url;
   titleRef = React.createRef();
   descriptionRef = React.createRef();
 
@@ -30,9 +30,29 @@ class CreateArticle extends Component{
 
     // Rellenar state con formulario
     this.changeState();
+
+    // Hacer una peticion HTTP por post para guardar el artículo 
+    axios.post(this.url+'save', this.state.article)
+      .then(res => {
+        if(res.data.article){
+          this.setState({
+            article: res.data.article,
+            status: 'success'
+          })
+        }else{
+          this.setState({
+            status: 'failed'
+          });
+        }
+      })
   }
 
   render(){
+
+    if(this.state.status === 'success'){
+      return <Redirect to="/blog" />
+    }
+
     return(
       <div className="center">
         <section id="content">
