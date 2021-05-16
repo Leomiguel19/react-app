@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class slider extends Component {
   render() {
@@ -6,7 +7,7 @@ class slider extends Component {
       <div id="slider" className={this.props.size}>
         <h1>{this.props.title}</h1>
         {this.props.btn &&
-          <a href="#" className="btn-white">{this.props.btn}</a>
+          <Link to="/blog" className="btn-white">{this.props.btn}</Link>
         }
       </div>
     );
