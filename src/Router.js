@@ -14,7 +14,6 @@ import Formulario from './components/Formulario';
 
 class Router extends Component {
   render() {
-    let buttonString = "Ver más";
     return (
       <BrowserRouter>
 
