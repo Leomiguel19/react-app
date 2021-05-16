@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 //import SeccionPruebas from './components/SeccionPruebas';
 import MiComponente from './components/MiComponente';
@@ -30,6 +30,14 @@ class Router extends Component {
             <h1>Página individual del artículo</h1>
           )}/> 
           <Route exact path="/blog/busqueda/:search" component={Search} />
+          <Route exact path="/redirect/:search" render = {
+            (props) => {
+              let search = props.match.params.search;
+              return(
+                <Redirect to={'/blog/busqueda/'+search}/>
+              );
+            }
+          } />
           <Route exact path="/formulario" component={Formulario} />
           <Route exact path="/peliculas" component={Peliculas} />
 
