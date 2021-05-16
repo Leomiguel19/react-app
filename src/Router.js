@@ -11,6 +11,7 @@ import Home from './components/Home';
 import Blog from './components/Blog';
 import Peliculas from './components/Peliculas';
 import Formulario from './components/Formulario';
+import Search from './components/Search';
 
 class Router extends Component {
   render() {
@@ -28,6 +29,7 @@ class Router extends Component {
           <Route exact path="/blog/articulo/:id" render = {() => (
             <h1>Página individual del artículo</h1>
           )}/> 
+          <Route exact path="/blog/busqueda/:search" component={Search} />
           <Route exact path="/formulario" component={Formulario} />
           <Route exact path="/peliculas" component={Peliculas} />
 

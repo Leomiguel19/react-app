@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Moment from 'react-moment';
 import 'moment/locale/es';
@@ -17,17 +17,36 @@ class Articles extends Component {
 
   componentDidMount() {
     let home = this.props.home;
+    let search = this.props.search;
 
-    if(home === "true"){
+    if (home === "true") {
       this.getLastArticles();
-    }else{
+    } else if (search && search != null && search != undefined) {
+      this.getArticlesBySearch(search);
+    } else {
       this.getArticles();
     }
   }
 
+  getArticlesBySearch = (searched) => {
+    axios.get(this.url + "search/" + searched)
+
+      .then(res => {
+        this.setState({
+          articles: res.data.articles,
+          status: 'success'
+        });
+      })
+      .catch(err => {
+        this.setState({
+          articles: [],
+          status: 'success'
+        });
+      });
+  }
 
   getLastArticles = () => {
-    axios.get(this.url+"articles/last")
+    axios.get(this.url + "articles/last")
       .then(res => {
 
         this.setState({
@@ -39,7 +58,7 @@ class Articles extends Component {
   }
 
   getArticles = () => {
-    axios.get(this.url+"articles")
+    axios.get(this.url + "articles")
       .then(res => {
 
         this.setState({
@@ -59,7 +78,7 @@ class Articles extends Component {
             <div className="image-wrap">
               {
                 article.image !== null ? (
-                  <img src={this.url+'get-image/'+article.image} alt={article.title} />
+                  <img src={this.url + 'get-image/' + article.image} alt={article.title} />
                 ) : (
                   <img src={imageDefault} alt={article.title} />
                 )
@@ -72,7 +91,7 @@ class Articles extends Component {
               {/*<Moment format="D MMMM YYYY">{article.date}</Moment>   9 mayo 2021*/}
               <Moment fromNow>{article.date}</Moment>
             </span>
-            <Link to={'/blog/articulo/'+article._id}>Leer más</Link>
+            <Link to={'/blog/articulo/' + article._id}>Leer más</Link>
 
             <div className="clearfix"></div>
           </article>
@@ -84,7 +103,7 @@ class Articles extends Component {
           {listArticles}
         </div>
       );
-    } else if (this.state.articles.length === 0 && this.state.articles.status === 'success') {
+    } else if (this.state.articles.length === 0 && this.state.status === 'success') {
       return (
         <div id="articles">
           <h2 className="subheader">No hay artículos para mostrar</h2>
