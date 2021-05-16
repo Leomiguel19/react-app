@@ -204,6 +204,19 @@ body {
   background: rgb(23, 150, 19);
 }
 
+.btn-danger{
+  background: rgb(255, 0, 0);
+  color: white !important; 
+  float: left;
+  margin-right: 20px;
+}
+
+.btn-warning{
+  background: rgb(221, 157, 17);
+  color: white !important;
+  float: left;
+}
+
 .btn-success:hover{
   background:black;
 }
