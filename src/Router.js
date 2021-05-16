@@ -25,6 +25,9 @@ class Router extends Component {
           <Route exact path="/home" component={Home} />
           <Route exact path="/segunda-ruta" component={MiComponente} />
           <Route exact path="/blog" component={Blog} />
+          <Route exact path="/blog/articulo/:id" render = {() => (
+            <h1>Página individual del artículo</h1>
+          )}/> 
           <Route exact path="/formulario" component={Formulario} />
           <Route exact path="/peliculas" component={Peliculas} />
 
