@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import Global from '../Global';
+import imageDefault from '../assets/images/logo.png';
 class Articles extends Component {
+
+  url = Global.url;
 
   state = {
     articles: [],
@@ -13,7 +16,7 @@ class Articles extends Component {
   }
 
   getArticles = () => {
-    axios.get("http://localhost:3900/api/articles")
+    axios.get(this.url+"articles")
       .then(res => {
 
         this.setState({
@@ -31,7 +34,14 @@ class Articles extends Component {
         return (
           <article className="article-item" id="article-template">
             <div className="image-wrap">
-              <img src="https://unhabitatmejor.leroymerlin.es/sites/default/files/styles/header_category/public/2018-10/4%20paisaje%20macedonia.jpg?itok=AELknmF8" alt="Paisaje" />
+              {
+                article.image !== null ? (
+                  <img src={this.url+'get-image/'+article.image} alt={article.title} />
+                ) : (
+                  <img src={imageDefault} alt={article.title} />
+                )
+              }
+
             </div>
 
             <h2>{article.title}</h2>
