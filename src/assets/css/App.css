@@ -235,6 +235,12 @@ body {
   font-size: 17px;
 }
 
+.thumb{
+  width: 170px;
+  float: left;
+  display: block;
+}
+
 input[type="text"],
 textarea,
 input[type="file"]{

@@ -82,7 +82,7 @@ class Article extends Component {
       return <Redirect to="/blog" />
     }
     return (
-      <div class="center">
+      <div className="center">
         <section id="content">
 
           {this.state.article &&
@@ -106,7 +106,7 @@ class Article extends Component {
               </p>
 
               <button onClick={() => { this.deleteArticle(article._id) }} to="/blog" className="btn btn-danger">Eliminar</button>
-              <Link to="/blog" className="btn btn-warning">editar</Link>
+              <Link to={'/blog/editar/'+article._id} className="btn btn-warning">editar</Link>
 
               <div className="clearfix"></div>
             </article>
